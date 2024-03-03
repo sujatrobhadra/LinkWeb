@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<form method="POST">
+	{{form.csrf_token}}
+	{{form.text.label()}}<br>
+	{{form.text()}}<br>
+	{{form.submitted()}}
+	</form>
+</body>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<form method="POST">
+	{{form.idd.label}}
+	{{form.idd()}}
+	{{form.content.label}}
+	{{form.content()}}
+	{{form.typed.label}}
+	{{form.typed()}}
+	{{form.group.label}}
+	{{form.group()}}
+	{{form.submitted()}}
+	</form>
+	{% if vals==None %}
+	<p> No entry in room </p>
+	{%else%}
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Room</th>
+			<th>COntent</th>
+			<th>Type</th>
+			<th>Group</th>
+			<th>Delete?</th>
+		</tr>
+	{% for room in vals %}
+		<tr>
+			<td>{{room[0]}}</td>
+			<td>{{room[1]}}</td>
+			<td>{{room[2]}}</td>
+			<td>{{room[3]}}</td>
+			<td>{{room[4]}}</td>
+			<td> <form method="GET" action="{{ url_for('delval', value=room[0])}}"> <button type="submit">Delete</button></td>
+		</tr>
+		{% endfor %}
+	{%endif%}
+
+
+
+</body>
